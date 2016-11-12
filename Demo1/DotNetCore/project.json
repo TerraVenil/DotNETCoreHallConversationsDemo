@@ -1,0 +1,22 @@
+﻿{
+  "version": "1.0.0-*",
+  "buildOptions": {
+    "debugType": "portable",
+    "emitEntryPoint": true,
+    "copyToOutput":{
+      "includeFiles": "config.json"
+    }
+  },
+  "dependencies": {
+    "Newtonsoft.Json": "7.0.1",
+    "Microsoft.IdentityModel": "6.1.7600.16394",
+    "System.ServiceModel": "4.0.3"
+  },
+  "frameworks": {
+    "net461": {
+      /*"bin": {
+            "assembly": "packages\\System.ServiceModel\\System.ServiceModel.dll"
+        }*/
+    }
+  }
+}
