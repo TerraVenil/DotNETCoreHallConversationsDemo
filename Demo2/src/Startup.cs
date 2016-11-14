@@ -1,5 +1,7 @@
 ﻿using System.IO;
 using Demo2.Infrastructure;
+using Demo2.Orders.Command;
+using Demo2.Orders.Query;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -29,6 +31,11 @@ namespace Demo2
             services.AddDbContext<RemontOnlineDbContext>(options =>
                 options.UseSqlServer(Configuration[ConfigurationConstants.RemontOnlineConnectionString]));
 
+            services.AddScoped<IOrdersCommandContext, OrdersCommandContext>();
+            services.AddScoped<IOrdersQueryContext, OrdersQueryContext>();
+            services.AddScoped<IOrderStatusesQueryContext, OrderStatusesQueryContext>();
+            services.AddScoped<IOrderTypesQueryContext, OrderTypesQueryContext>();
+
             // Add framework services.
             services.AddMvc();
         }
@@ -42,6 +49,11 @@ namespace Demo2
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
+                using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+                {
+                    serviceScope.ServiceProvider.GetService<RemontOnlineDbContext>().EnsureSeedData();
+                }
             }
             else
             {
@@ -49,25 +61,25 @@ namespace Demo2
             }
 
             app.Use(async (context, next) =>
-            {
-                await next();
+                    {
+                        await next();
 
-                if (context.Response.StatusCode == 404 && !Path.HasExtension(context.Request.Path.Value))
-                {
-                    context.Request.Path = "/index.html";
-                    context.Response.StatusCode = 200;
-                    await next();
-                }
-            });
+                        if (context.Response.StatusCode == 404 && !Path.HasExtension(context.Request.Path.Value))
+                        {
+                            context.Request.Path = "/index.html";
+                            context.Response.StatusCode = 200;
+                            await next();
+                        }
+                    });
 
             app.UseFileServer();
 
             app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
+                       {
+                           routes.MapRoute(
+                               name: "default",
+                               template: "{controller=Home}/{action=Index}/{id?}");
+                       });
         }
     }
 }
