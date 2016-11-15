@@ -1,0 +1,8 @@
+<h1>{{ title }}</h1>
+
+<div>
+    <button type="button" (click)="c.show()" class="btn btn-success">New Order</button>
+    <order-new #c="child" (createOrder)="onCreateOrder($event)"></order-new>
+</div>
+
+<order-list [orders]="orders" (selectOrder)="onSelectOrder($event)"></order-list>

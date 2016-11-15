@@ -1,0 +1,22 @@
+<p *ngIf="!orders"><em>Loading...</em></p>
+
+<table class='table' *ngIf="orders">
+    <thead>
+        <tr>
+            <th>Order #</th>
+            <th>Status</th>
+            <th>Deadline</th>
+            <th>Comment</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let order of orders" (click)="onSelect(order)">
+            <td>{{ order.number }}</td>
+            <td>{{ order.status }}</td>
+            <td>{{ order.deadlineTime | date: 'dd/MM/yyyy' }}</td>
+            <td>{{ order.comment }}</td>
+            <td>{{ order.price }}</td>
+        </tr>
+    </tbody>
+</table>

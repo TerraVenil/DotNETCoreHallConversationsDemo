@@ -1,0 +1,82 @@
+<div bsModal #childModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lm" *ngIf="orderTypesLoaded">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" aria-label="Close" (click)="hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4>New Order</h4>
+            </div>
+            <div class="modal-body">
+                <form #createOrderForm="ngForm">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label class="control-label"><i class="fa fa-user" aria-hidden="true"></i>Order Type</label>
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-control" required [(ngModel)]="newOrder.orderTypeId" name="orderType">
+                                    <option *ngFor="let orderType of orderTypes" [value]="orderType.id">{{ orderType.name }}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Comment:</label>
+                        <textarea class="form-control" ngControl="comment" [(ngModel)]="newOrder.comment" name="comment">{{ newOrder.comment }}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label class="control-label"><i class="fa fa-text-width" aria-hidden="true"></i>Deadline</label>
+                            </div>
+                            <div class="col-md-4">
+                                <datetime [(ngModel)]="newOrder.deadlineTime" ngControl="deadlineTime" name="deadlineTime" [timepicker]="false"></datetime>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Price</label>
+                        <input type="number" min="0.1" step="0.1" ngControl="price" class="form-control" name="price" required [(ngModel)]="newOrder.price" />
+                    </div>
+                    <div class="form-group">
+                        <label>Prepaid Expense</label>
+                        <input type="number" min="0.1" step="0.1" ngControl="prepaidExpense" class="form-control" name="prepaidExpense" [(ngModel)]="newOrder.prepaidExpense" />
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>Is Urgently?</label>
+                                <input type="checkbox" ngControl="isUrgently" name="isUrgently" [(ngModel)]="newOrder.isUrgently">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label class="control-label"><i class="fa fa-text-width" aria-hidden="true"></i>Call Master</label>
+                            </div>
+                            <div class="col-md-4">
+                                <datetime [(ngModel)]="newOrder.callMasterTime" ngControl="callMasterTime" name="callMasterTime" [timepicker]="false"></datetime>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <button type="submit" class="btn btn-primary" (click)="onCreate(newOrder)" [disabled]="!createOrderForm.form.valid"><i class="fa fa-user-times" aria-hidden="true"></i>Create</button>
+                                <button type="button" class="btn btn-primary" (click)="hide()"><i class="fa fa-user-times" aria-hidden="true"></i>Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <p>
+                    Form: {{ createOrderForm.value | json }}
+                </p>
+                <p>
+                    IsValid: {{ createOrderForm.form.valid }}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
