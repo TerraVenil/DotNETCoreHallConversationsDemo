@@ -9,5 +9,7 @@ typings/
 
 # Files
 *.lock.json
+yarn.lock
 *.js
 *.js.map
+index.html

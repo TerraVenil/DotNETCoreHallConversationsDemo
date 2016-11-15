@@ -1,19 +1,26 @@
 # Demo2
 
-HMR, dotnet watch run, AngularServices with WebPack, Angular2 and .NET Core
+HMR, dotnet watch run, AngularServices with Webpack, Angular2 and .NET Core
 
 ##### Demo and docs: https://github.com/TerraVenil/DotNETCoreHallConversationsDemo
 
-## Dependencies
-- [WebPack](https://webpack.github.io/)
-- [Angular2](https://angular.io/)
-- [.NET Core SDK](https://www.microsoft.com/net/core)
-
 ## Installation
-`yarn`
+- [.NET Core SDK](https://www.microsoft.com/net/core)
+- [Node.js](https://nodejs.org/en/)
+- [Yarn](https://yarnpkg.com/en/docs/install)
+
+## Dependencies
+
+- [Webpack](https://webpack.github.io/)
+- [Angular2](https://angular.io/) (HMR)
+- [SpaServices](https://github.com/aspnet/JavaScriptServices/tree/dev/src/Microsoft.AspNetCore.SpaServices#microsoftaspnetcorespaservices) (Webpack middleware)
+- [Microsoft.DotNet.Watcher.Tools](https://github.com/aspnet/DotNetTools) (dotnet watch run)
 
 ## Usage
-1. `yarn run client` or `yarn run server`
+1. `yarn`
+1. `dotnet restore`
+2. `dotnet ef database update`
+3. `yarn run client` and `yarn run server`
 
 
 ## Contributing

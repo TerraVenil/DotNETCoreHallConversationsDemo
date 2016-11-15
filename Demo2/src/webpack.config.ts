@@ -44,7 +44,8 @@ var webpackConfigs = {
         publicPath: "/assets/"
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
+        // Enable HMR from FE side
+        /*new webpack.HotModuleReplacementPlugin(),*/
         new HtmlWebpackPlugin({
             title: "Remont Online",
             template: "index.ejs", 
