@@ -4,6 +4,10 @@ obj/
 packages/
 wwwroot/
 .vs/
+node_modules/
+typings/
 
 # Files
 *.lock.json
+*.js
+*.js.map
