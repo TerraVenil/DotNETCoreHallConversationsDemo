@@ -1,4 +1,6 @@
 {
+  "name": "Demo2",
+
     "dependencies": {
         "Microsoft.NETCore.App": {
             "version": "1.0.1",
@@ -35,8 +37,10 @@
   },
 
   "buildOptions": {
+    "debugType": "portable",
     "emitEntryPoint": true,
-    "preserveCompilationContext": true
+    "preserveCompilationContext": true,
+    "outputName": "Demo2"
   },
 
   "runtimeOptions": {
