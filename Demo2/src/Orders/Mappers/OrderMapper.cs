@@ -1,3 +1,4 @@
+using System;
 using Demo2.Entities;
 using Demo2.Orders.Models;
 
@@ -9,6 +10,7 @@ namespace Demo2.Orders.Mappers
         {
             var order = new Order
                         {
+                            OrderNumber = Guid.NewGuid().ToString(),
                             OrderTypeId = model.OrderTypeId,
                             OrderStatusId = model.StatusId,
                             DeadlineTime = model.DeadlineTime,

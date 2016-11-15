@@ -12,8 +12,7 @@ namespace Demo2.Infrastructure
         public DbSet<Order> Orders { get; set; }
 
         public RemontOnlineDbContext(DbContextOptions options) : base(options)
-        {
-            
+        {    
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -51,7 +50,7 @@ namespace Demo2.Infrastructure
                     entity.HasKey(x => x.Id);
 
                     entity.Property(x => x.Id).HasColumnName("Id");
-                    entity.Property(x => x.OrderNumber).HasColumnName("OrderNumber").IsRequired().ValueGeneratedOnAdd();
+                    entity.Property(x => x.OrderNumber).HasColumnName("OrderNumber");
 
                     entity.Property(t => t.OrderTypeId).IsRequired().ValueGeneratedNever();
                     entity.HasOne(x => x.OrderType);

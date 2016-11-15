@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace src.Migrations
+namespace Demo2.Migrations
 {
-    public partial class InitMigration : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -45,7 +45,7 @@ namespace src.Migrations
                     Comment = table.Column<string>(maxLength: 255, nullable: true),
                     DeadlineTime = table.Column<DateTime>(nullable: false),
                     IsUrgently = table.Column<bool>(nullable: false),
-                    OrderNumber = table.Column<string>(nullable: false),
+                    OrderNumber = table.Column<string>(nullable: true),
                     OrderStatusId = table.Column<int>(nullable: false),
                     OrderTypeId = table.Column<int>(nullable: false),
                     PrepaidExpense = table.Column<decimal>(nullable: false),

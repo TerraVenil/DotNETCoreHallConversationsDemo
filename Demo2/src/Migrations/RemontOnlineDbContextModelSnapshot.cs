@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Demo2.Infrastructure;
 
-namespace src.Migrations
+namespace Demo2.Migrations
 {
     [DbContext(typeof(RemontOnlineDbContext))]
     partial class RemontOnlineDbContextModelSnapshot : ModelSnapshot
@@ -36,8 +36,6 @@ namespace src.Migrations
                         .HasColumnName("IsUrgently");
 
                     b.Property<string>("OrderNumber")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
                         .HasColumnName("OrderNumber");
 
                     b.Property<int>("OrderStatusId");

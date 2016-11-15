@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Demo2.Infrastructure;
 
-namespace src.Migrations
+namespace Demo2.Migrations
 {
     [DbContext(typeof(RemontOnlineDbContext))]
-    [Migration("20161114152711_InitMigration")]
-    partial class InitMigration
+    [Migration("20161115160418_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -37,8 +37,6 @@ namespace src.Migrations
                         .HasColumnName("IsUrgently");
 
                     b.Property<string>("OrderNumber")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
                         .HasColumnName("OrderNumber");
 
                     b.Property<int>("OrderStatusId");
