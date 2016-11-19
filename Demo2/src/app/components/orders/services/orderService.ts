@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import 'rxjs/Rx';
 
 import { Order } from '../index.model';
 
@@ -30,6 +31,10 @@ export class OrderService {
         this.http.get('/api/v1/order_types')
             .map(response => response.json())
             .subscribe(onNext);
+    }
+
+    public exportToExcel() : void {
+        window.open('http://localhost:5000/api/v1/orders/ExportOrdersToExcelDocument');
     }
 }
 

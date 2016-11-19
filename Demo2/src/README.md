@@ -12,9 +12,12 @@ HMR, dotnet watch run, AngularServices with Webpack, Angular2 and .NET Core
 ## Dependencies
 
 - [Webpack](https://webpack.github.io/)
-- [Angular2](https://angular.io/) (HMR)
-- [SpaServices](https://github.com/aspnet/JavaScriptServices/tree/dev/src/Microsoft.AspNetCore.SpaServices#microsoftaspnetcorespaservices) (Webpack middleware)
-- [Microsoft.DotNet.Watcher.Tools](https://github.com/aspnet/DotNetTools) (dotnet watch run)
+- [Angular2](https://angular.io/)
+- [SpaServices](https://github.com/aspnet/JavaScriptServices/tree/dev/src/Microsoft.AspNetCore.SpaServices#microsoftaspnetcorespaservices)
+    * HMR
+    * Webpack middleware
+- [Microsoft.DotNet.Watcher.Tools](https://github.com/aspnet/DotNetTools)
+    * [dotnet watch run]
 
 ## Usage
 1. `yarn`

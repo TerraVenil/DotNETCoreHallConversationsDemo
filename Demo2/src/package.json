@@ -40,6 +40,7 @@
     "html-webpack-plugin": "^2.22.0",
     "http-proxy-middleware": "^0.17.2",
     "ng-annotate-loader": "^0.2.0",
+    "officegen": "^0.4.0",
     "raw-loader": "^0.5.1",
     "style-loader": "^0.13.1",
     "to-string-loader": "^1.1.5",

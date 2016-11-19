@@ -2,6 +2,7 @@
 
 <div>
     <button type="button" (click)="c.show()" class="btn btn-success">New Order</button>
+    <button type="button" (click)="exportToExcel()" class="btn btn-success">Export to Excel</button>
     <order-new #c="child" (createOrder)="onCreateOrder($event)"></order-new>
 </div>
 

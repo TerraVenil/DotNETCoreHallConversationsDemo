@@ -31,6 +31,10 @@ export class OrdersComponent implements OnInit {
         this.orderService.createOrder(order, result => this.getOrders());
     }
 
+    public exportToExcel() : void {
+        this.orderService.exportToExcel();
+    }
+
     private getOrders() {
         this.orderService.getOrders(result => {
                 this.orders = result;
