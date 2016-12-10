@@ -21,9 +21,13 @@ HMR, dotnet watch run, AngularServices with Webpack, Angular2 and .NET Core
 
 ## Usage
 1. `yarn`
-1. `dotnet restore`
-2. `dotnet ef database update`
-3. `yarn run client` and `yarn run server`
+2. `dotnet restore`
+3. `dotnet ef database update`
+4. `yarn run client` and `yarn run server`
+
+
+## Install additional TypeScript definitions
+`npm install --save-dev @types/lodash`
 
 
 ## Contributing
