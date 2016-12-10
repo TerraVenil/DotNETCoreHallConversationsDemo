@@ -1,5 +1,6 @@
 {
-    "name": "Demo2",
+    "name": "src",
+    "version": "1.0.0-*",
     "dependencies": {
         "Microsoft.NETCore.App": {
             "version": "1.0.1",
